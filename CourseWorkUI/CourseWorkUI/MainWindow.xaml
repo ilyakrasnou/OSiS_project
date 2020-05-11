@@ -1,0 +1,127 @@
+﻿<Window x:Class="CourseWorkUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWorkUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" MinWidth="660" MinHeight="700" Width="660">
+    <StackPanel HorizontalAlignment="Center" CanHorizontallyScroll="True">
+        <StackPanel Orientation="Horizontal">
+            <Image x:Name="source" MaxHeight="300" MaxWidth="300" Margin="10 0 10 0"></Image>
+            <Image x:Name="dest" MaxHeight="300" MaxWidth="300" Margin="10 0 10 0"></Image>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Grid x:Name="matrix" HorizontalAlignment="Center" Margin="0 20 0 20">
+                <Grid.Resources>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="Width" Value="60"/>
+                        <Setter Property="Margin" Value="10 10 10 10"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="matrix11" TextChanged='Matrix_TextChanged' Grid.Row="0" Grid.Column="0"/>
+                <TextBox x:Name="matrix12" TextChanged="Matrix_TextChanged" Grid.Row="0" Grid.Column="1"/>
+                <TextBox x:Name="matrix13" TextChanged='Matrix_TextChanged' Grid.Row="0" Grid.Column="2"/>
+                <TextBox x:Name="matrix14" TextChanged="Matrix_TextChanged" Grid.Row="0" Grid.Column="3"/>
+                <TextBox x:Name="matrix15" TextChanged='Matrix_TextChanged' Grid.Row="0" Grid.Column="4"/>
+                
+                <TextBox x:Name="matrix21" TextChanged="Matrix_TextChanged" Grid.Row="1" Grid.Column="0"/>
+                <TextBox x:Name="matrix22" TextChanged="Matrix_TextChanged" Grid.Row="1" Grid.Column="1"/>
+                <TextBox x:Name="matrix23" TextChanged='Matrix_TextChanged' Grid.Row="1" Grid.Column="2"/>
+                <TextBox x:Name="matrix24" TextChanged="Matrix_TextChanged" Grid.Row="1" Grid.Column="3"/>
+                <TextBox x:Name="matrix25" TextChanged="Matrix_TextChanged" Grid.Row="1" Grid.Column="4"/>
+                
+                <TextBox x:Name="matrix31" TextChanged="Matrix_TextChanged" Grid.Row="2" Grid.Column="0"/>
+                <TextBox x:Name="matrix32" TextChanged="Matrix_TextChanged" Grid.Row="2" Grid.Column="1"/>
+                <TextBox x:Name="matrix33" TextChanged="Matrix_TextChanged" Grid.Row="2" Grid.Column="2"/>
+                <TextBox x:Name="matrix34" TextChanged="Matrix_TextChanged" Grid.Row="2" Grid.Column="3"/>
+                <TextBox x:Name="matrix35" TextChanged="Matrix_TextChanged" Grid.Row="2" Grid.Column="4"/>
+
+                <TextBox x:Name="matrix41" TextChanged="Matrix_TextChanged" Grid.Row="3" Grid.Column="0"/>
+                <TextBox x:Name="matrix42" TextChanged="Matrix_TextChanged" Grid.Row="3" Grid.Column="1"/>
+                <TextBox x:Name="matrix43" TextChanged="Matrix_TextChanged" Grid.Row="3" Grid.Column="2"/>
+                <TextBox x:Name="matrix44" TextChanged="Matrix_TextChanged" Grid.Row="3" Grid.Column="3"/>
+                <TextBox x:Name="matrix45" TextChanged="Matrix_TextChanged" Grid.Row="3" Grid.Column="4"/>
+
+                <TextBox x:Name="matrix51" TextChanged="Matrix_TextChanged" Grid.Row="4" Grid.Column="0"/>
+                <TextBox x:Name="matrix52" TextChanged="Matrix_TextChanged" Grid.Row="4" Grid.Column="1"/>
+                <TextBox x:Name="matrix53" TextChanged="Matrix_TextChanged" Grid.Row="4" Grid.Column="2"/>
+                <TextBox x:Name="matrix54" TextChanged="Matrix_TextChanged" Grid.Row="4" Grid.Column="3"/>
+                <TextBox x:Name="matrix55" TextChanged="Matrix_TextChanged" Grid.Row="4" Grid.Column="4"/>
+            </Grid>
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="Width" Value="140"/>
+                        <Setter Property="Margin" Value="10 20 10 10"/>
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBox x:Name="consoleOutput" Height="25" Margin="0 30 0 0" FontSize="15" />
+                <CheckBox FontSize="15" Content="Load images" 
+                          VerticalContentAlignment="Center" 
+                          HorizontalContentAlignment="Center" Height="30" 
+                          IsThreeState="False" IsChecked="True" 
+                          Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"
+                          Margin="10 20 10 20"/>
+                <CheckBox FontSize="15" Content="Apply and compare with CPU" 
+                          VerticalContentAlignment="Center" 
+                          HorizontalContentAlignment="Center" Height="30" 
+                          IsThreeState="False" IsChecked="False" 
+                          Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"
+                          Margin="10 20 10 20"/>
+                <Button Content="Clear" Click="Button_Click"/>
+                <Button 
+                    x:Name="LoadButton"
+                    Content="Choose file"
+                    Click="LoadButton_Click"/>
+                <Button
+                    Name="ApllyBut"
+                    Content ="Apply"
+                    FontSize="15"
+                    Click="ApllyBut_Click"
+                    />
+            </StackPanel>
+        </StackPanel>
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="Margin" Value="40 0 40 0"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition  Width="1.5*"/>
+                <ColumnDefinition  Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="div" Text="1" TextChanged='Div_TextChanged' Grid.Row="0" Grid.Column="0"/>
+            <TextBox x:Name="offset" Text="0"  TextChanged ='Offset_TextChanged' Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="div" FontSize="15" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="offset" FontSize="15" HorizontalAlignment="Center"/>
+        </Grid>
+    </StackPanel>
+</Window>
